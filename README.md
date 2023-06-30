@@ -1,107 +1,26 @@
-# This repo is no longer maintained. Consider using `npm init vite` and selecting the `svelte` option or — if you want a full-fledged app framework — use [SvelteKit](https://kit.svelte.dev), the official application framework for Svelte.
-
----
-
-# svelte app
-
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
 
 
-## Get started
+# JSONIFY 
 
-Install the dependencies...
+This is a project built with [Svelte](https://svelte.dev), JS, CSS and HTML. 
 
-```bash
-cd svelte-app
-npm install
-```
+See [http://jsonedit.surge.sh/](http://jsonedit.surge.sh/)
 
-...then start [Rollup](https://rollupjs.org):
+## Functionality
+- The app allows the user to upload a JSON file, edit it, validate it, and save it to the local workstation. One can also type up a JSON from scratch on the site and thereafter download it after validation. If the typed up JSON is wrong, the box will outline pink, and if typed correctly, it will auto format and indent the json. 
+- Svelte was used because it was a fast way to build a static front end using the same/related tech stack leveraged by the potential end user of this app. Besides, a basic understanding of HTML, javascript, and CSS was all that was needed to use it. The framework compiles components into efficient JavaScript code, leading to faster loading times. Its unique approach results in a leaner codebase, reducing the amount of code processed by the browser. With minimal state management and no virtual DOM, Svelte enables faster and more reliable apps. Additionally, the compiled Svelte applications have no traces of the framework, offering a lightweight and clean final product. As a result, it is increasingly popular based on the latest [SO](https://survey.stackoverflow.co/2023/#section-admired-and-desired-web-frameworks-and-technologies) survey. 
 
-```bash
-npm run dev
-```
-
-Navigate to [localhost:8080](http://localhost:8080). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
-
-## Building and running in production mode
-
-To create an optimised version of the app:
-
-```bash
-npm run build
-```
-
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
+- The code can be improved a lot, given more time. For example, the css can be separated into its own css file and referenced by the svelte code. Additionally, methods can be improved to be more SOLID.
+- Two files (`config.json` and `data.json`) have been attached under `/test-files`. The former when uploaded will not work due to invalid JSON and the latter will work. 
 
 
-## Single-page app mode
+## How the app is built 
 
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
+- By using `rollup-plugin-svelte`, we have arranged for the Svelte code to be compiled. See the `scripts` section of `package.json` to find the specific commands that are run by rollup. 
 
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
 
-```js
-"start": "sirv public --single"
-```
+## How the app is deployed on the web
+- We use `surge` to deploy to the cloud. 
+- See [http://jsonedit.surge.sh/](http://jsonedit.surge.sh/)
+- See [Codesandbox](https://codesandbox.io/s/github/sumrish/Json_Editor)
 
-## Using TypeScript
-
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
-
-```bash
-node scripts/setupTypeScript.js
-```
-
-Or remove the script via:
-
-```bash
-rm scripts/setupTypeScript.js
-```
-
-If you want to use `baseUrl` or `path` aliases within your `tsconfig`, you need to set up `@rollup/plugin-alias` to tell Rollup to resolve the aliases. For more info, see [this StackOverflow question](https://stackoverflow.com/questions/63427935/setup-tsconfig-path-in-svelte).
-
-## Deploying to the web
-
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```
