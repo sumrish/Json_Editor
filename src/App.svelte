@@ -135,10 +135,6 @@
 	letter-spacing: 2px;
   }
 
-  .upload-label {
-    margin-top: 10px;
-    color: #ea0a8e;
-  }
 </style>
 
 <main>
